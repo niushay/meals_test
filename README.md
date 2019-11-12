@@ -1,4 +1,4 @@
-# niu_meals
+# meals_test
 
 A new Flutter application.
 
