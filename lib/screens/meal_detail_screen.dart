@@ -7,7 +7,7 @@ class MealDetailScreen extends StatelessWidget {
   Widget buildSectionTitle(BuildContext context, String text) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10),
-      child: Text('Ingredients', style: Theme.of(context).textTheme.title),
+      child: Text(text, style: Theme.of(context).textTheme.title),
     );
   }
 
@@ -62,17 +62,20 @@ class MealDetailScreen extends StatelessWidget {
               itemBuilder: (ctx, index) => Column(
                 children: <Widget>[
                   ListTile(
-                    leading: CircleAvatar(child: Text('# ${index+1}'),),
-                    title: Text(selectedMeal.steps[index]) ,
+                    leading: CircleAvatar(
+                      child: Text('# ${index + 1}'),
+                    ),
+                    title: Text(selectedMeal.steps[index]),
                   ),
                   Divider()
                 ],
               ),
               itemCount: selectedMeal.steps.length,
-            )
-
-            ),
+            )),
           ]),
-        ));
+        ),
+        floatingActionButton: FloatingActionButton(child: Icon(Icons.delete),
+    onPressed: ()=> Navigator.of(context).pop(mealId),),
+    );
   }
 }
